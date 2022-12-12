@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Информация о заказе</title>
+</head>
+<body>
+<form>
+  <input type="button" value="Вернуться к списку заказов" onclick="history.back()">
+</form>
+<h3>Информация о заказе</h3>
+  <p th:text="'Заказ № ' + ${order.getNumber()}"/>
+  <p th:text="'Фамилия: ' + ${order.getPerson().getLastname()}"/>
+  <p th:text="'Наименование: ' + ${order.getProduct().getTitle()}"/>
+  <p th:text="'Количество: ' + ${order.getCount()}"/>
+  <p th:text="'Цена: ' + ${order.getPrice()}"/>
+  <p th:text="'Дата заказа: ' + ${#temporals.format(order.getDateTime(), 'dd-MMM-yyyy')}"/>
+  <p th:text="'Статус: ' + ${order.getStatus()}"/>
+<a href="/index">Назад в личный кабинет</a>
+</body>
+</html>
